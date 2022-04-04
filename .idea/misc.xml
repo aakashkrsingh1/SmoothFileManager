@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/main_activity_background.xml" value="0.31666666666666665" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27239583333333334" />
         <entry key="app/src/main/res/layout/fragment_homefragment.xml" value="0.2604166666666667" />
+        <entry key="app/src/main/res/layout/homesingle.xml" value="0.2" />
       </map>
     </option>
   </component>
