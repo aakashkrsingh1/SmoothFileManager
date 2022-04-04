@@ -21,7 +21,7 @@ class HomearraylistAdapter(var model1ArrayList:ArrayList<Model1>, var context:Co
         holder.img.setImageResource(temp.image)
         holder.text1.setText(temp.text1)
         holder.itemView.setOnClickListener{
-            Toast.makeText(context,"Fetching ${holder.text1.text}s", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"Fetching ${holder.text1.text}", Toast.LENGTH_SHORT).show()
         }
     }
 
