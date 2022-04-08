@@ -3,8 +3,11 @@ package com.akash.smoothfilemanager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract
+import android.widget.Adapter
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.akash.smoothfilemanager.adapter.CategoryViewAdapter
 import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
@@ -16,6 +19,8 @@ class HomeCategory : AppCompatActivity() {
     lateinit var fileLink:String
     lateinit var categoryRecycler:RecyclerView
     lateinit var datas:MutableList<File>
+    lateinit var  categoryViewAdapter: CategoryViewAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +28,14 @@ class HomeCategory : AppCompatActivity() {
         category= intent.getStringExtra("category").toString()
         categoryName= findViewById(R.id.homeCategory) as TextView
         categoryRecycler= findViewById(R.id.homeCategoryRecycler) as RecyclerView
+        categoryRecycler.layoutManager= LinearLayoutManager(this)
+        categoryRecycler.adapter= categoryViewAdapter
+
+
 
         datas= ArrayList()
+        categoryViewAdapter= CategoryViewAdapter(this@HomeCategory, datas as ArrayList<File>, category)
+        categoryName.text= category
         fileLink= System.getenv("EXTERNAL_STORAGE")
         gettingFile(fileLink)
 

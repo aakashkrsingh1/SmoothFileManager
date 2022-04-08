@@ -3,9 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1615" />
+        <entry key="app/src/main/res/drawable/audios.xml" value="0.1615" />
+        <entry key="app/src/main/res/drawable/ic_baseline_create_new_folder_24.xml" value="0.1615" />
+        <entry key="app/src/main/res/drawable/ic_baseline_folder_24.xml" value="0.1615" />
+        <entry key="app/src/main/res/drawable/ic_baseline_ondemand_video_24.xml" value="0.1615" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1615" />
+        <entry key="app/src/main/res/drawable/images.xml" value="0.1615" />
         <entry key="app/src/main/res/drawable/main_activity_background.xml" value="0.31666666666666665" />
         <entry key="app/src/main/res/layout/activity_home_category.xml" value="0.20153985507246377" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27239583333333334" />
+        <entry key="app/src/main/res/layout/categoryviewholdersingle.xml" value="0.72" />
         <entry key="app/src/main/res/layout/fragment_homefragment.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/layout/homesingle.xml" value="0.6" />
       </map>
