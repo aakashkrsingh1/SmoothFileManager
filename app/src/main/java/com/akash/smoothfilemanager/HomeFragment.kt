@@ -1,6 +1,7 @@
 package com.akash.smoothfilemanager
-
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.AlarmClock.EXTRA_MESSAGE
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,7 @@ import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import java.util.jar.Manifest
+import android.content.Intent
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,10 +64,10 @@ recyclerView1= view.findViewById(R.id.homeRecycler1)
     private fun recycler1(){
         modelArrayList= ArrayList()
         // add all categories, images, audio etc
-        modelArrayList.add(Model1("Images", R.drawable.images_icon))
-        modelArrayList.add(Model1("Videos", R.drawable.video_icon))
-        modelArrayList.add(Model1("Audios", R.drawable.audio_icon))
-        modelArrayList.add(Model1("Documents", R.drawable.documents_icon))
+        modelArrayList.add(Model1("Image", R.drawable.images_icon))
+        modelArrayList.add(Model1("Video", R.drawable.video_icon))
+        modelArrayList.add(Model1("Audio", R.drawable.audio_icon))
+        modelArrayList.add(Model1("Document", R.drawable.documents_icon))
 
         recyclerView1.layoutManager= GridLayoutManager(context,2)
         recyclerView1.adapter= HomearraylistAdapter(modelArrayList,requireContext())

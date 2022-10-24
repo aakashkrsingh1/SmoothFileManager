@@ -1,15 +1,18 @@
 package com.akash.smoothfilemanager
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.widget.Adapter
+import android.os.Environment
+import android.util.Log
 import android.widget.TextView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.akash.smoothfilemanager.adapter.CategoryViewAdapter
 import java.io.File
 import java.util.*
+import java.util.logging.LogManager
 import kotlin.collections.ArrayList
 
 class HomeCategory : AppCompatActivity() {
@@ -22,6 +25,7 @@ class HomeCategory : AppCompatActivity() {
     lateinit var  categoryViewAdapter: CategoryViewAdapter
 
 
+    @RequiresApi(Build.VERSION_CODES.R)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_category)
@@ -29,23 +33,27 @@ class HomeCategory : AppCompatActivity() {
         categoryName= findViewById(R.id.homeCategory) as TextView
         categoryRecycler= findViewById(R.id.homeCategoryRecycler) as RecyclerView
         categoryRecycler.layoutManager= LinearLayoutManager(this)
+
+        datas= ArrayList()
+        categoryViewAdapter= CategoryViewAdapter(this@HomeCategory, datas as ArrayList<File>, category)
         categoryRecycler.adapter= categoryViewAdapter
 
 
 
-        datas= ArrayList()
-        categoryViewAdapter= CategoryViewAdapter(this@HomeCategory, datas as ArrayList<File>, category)
+
+
         categoryName.text= category
-        fileLink= System.getenv("EXTERNAL_STORAGE")
+       // fileLink= Environment.getDataDirectory().absolutePath
+        fileLink= System.getenv("") as String
         gettingFile(fileLink)
 
     }
     private  fun gettingFile( path:String){
-        var file= File(path)
+        val file= File(path)
         if(file.isDirectory && file.canRead())
         {
             val listOfFiles=file.listFiles()
-            for(singleFile in listOfFiles)
+            for(singleFile in listOfFiles!!)
             {
                 if(singleFile.isDirectory && singleFile.canRead())
                     gettingFile(singleFile.absolutePath)
@@ -62,7 +70,7 @@ class HomeCategory : AppCompatActivity() {
     }
 
     private fun display(singleFile: File) {
-        var fileName:String= singleFile.name.lowercase(Locale.getDefault())
+        val fileName:String= singleFile.name.lowercase(Locale.getDefault())
 
       when(category){
           "Image"->if(fileName.endsWith(".png")|| fileName.contains(".jpg")|| fileName.contains(".jpeg")|| fileName.contains(".gif"))
